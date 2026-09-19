@@ -1,7 +1,6 @@
 package br.edu.principal;
 
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class Uteis {
@@ -38,6 +37,6 @@ public class Uteis {
     
     public static void sobre() {
     	JOptionPane.showMessageDialog(null, 
-    			"Desenvolvido por Roger M. Sarmento!");
+    			"Desenvolvido pela empresa Horizon Earth!");
     }
 }
