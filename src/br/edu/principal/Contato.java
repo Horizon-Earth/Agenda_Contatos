@@ -1,11 +1,11 @@
 package br.edu.principal;
 
-public class contato {
+public class Contato {
     private String nome;
     private String celular;
     private String email;
 
-    public contato(String nome, String celular, String email) {
+    public Contato(String nome, String celular, String email) {
         this.nome = nome;
         this.celular = celular;
         this.email = email;
