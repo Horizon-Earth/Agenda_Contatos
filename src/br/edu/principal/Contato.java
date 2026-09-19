@@ -1,6 +1,7 @@
 package br.edu.principal;
 
 public class Contato {
+
     private String nome;
     private String celular;
     private String email;
@@ -19,19 +20,19 @@ public class Contato {
         this.nome = nome;
     }
 
-    public String getcelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setcelular(String celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
-    public String getemail() {
+    public String getEmail() {
         return email;
     }
 
-    public void  setemail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 }
