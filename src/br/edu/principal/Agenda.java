@@ -6,10 +6,8 @@ import java.util.Scanner;
 public class Agenda {
 	
 	public static void adicionar(
-			Scanner sc, 
-			List<String> nomes, 
-			List<String> celulares, 
-			List<String> emails) {
+			Scanner sc,
+			List<String> contatos) {
     	System.out.println("=== ADICIONAR CONTATO ===");
         System.out.print("Digite o nome: ");
         String nome = sc.nextLine();
@@ -18,9 +16,9 @@ public class Agenda {
         System.out.print("Digite o email: ");
         String email = sc.nextLine();
 
-        nomes.add(nome);
-        celulares.add(celular);
-        emails.add(email);
+        nome.setNome();
+        celular.setCelular();
+        email.setEmail();
 
         System.out.println("Contato adicionado com sucesso!");
     }
