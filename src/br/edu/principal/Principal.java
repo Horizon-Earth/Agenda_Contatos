@@ -10,11 +10,11 @@ public class Principal {
 
         Agenda agenda = new Agenda();
 
-
         boolean continuar = true;
 
         Uteis.mostraInicializacao();
 
+        new TelaAgenda();
 
         while (continuar) {
 
