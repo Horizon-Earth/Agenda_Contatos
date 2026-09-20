@@ -3,6 +3,7 @@ package br.edu.principal;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -16,7 +17,28 @@ public class TelaAgenda extends JFrame {
     private JButton botaoAtualizar;
     private JButton botaoExcluir;
 
+    private Agenda agenda = new Agenda();
+
     public TelaAgenda() {
+
+        botaoAdicionar = new JButton("Adicionar contato");
+
+        botaoAdicionar.addActionListener(e -> {
+            String nome = campoNome.getText();
+            String email = campoEmail.getText();
+            String celular = campoCelular.getText();
+            
+            agenda.adicionar(nome, celular, email);
+
+            JOptionPane.showMessageDialog( null, "Contato adicionado com sucesso!");
+
+            campoNome.setText("");
+            campoEmail.setText("");
+            campoCelular.setText("");
+        });
+
+        botaoExcluir = new JButton("Excluir contato");
+        botaoAtualizar = new JButton("Atualizar contato");
 
         setTitle("Agenda de Contatos");
         setSize(700, 500);
@@ -34,10 +56,6 @@ public class TelaAgenda extends JFrame {
         JLabel labelCelular = new JLabel("Celular: ");
         campoCelular = new JTextField(20);
 
-        botaoAdicionar = new JButton("Adicionar contato");
-        botaoExcluir = new JButton("Excluir contato");
-        botaoAtualizar = new JButton("Atualizar contato");
-
         painel.add(labelNome);
         painel.add(campoNome);
         
@@ -50,7 +68,6 @@ public class TelaAgenda extends JFrame {
         painel.add(botaoAdicionar);
         painel.add(botaoExcluir);
         painel.add(botaoAtualizar);
-
 
         add(painel);
         setVisible(true);
