@@ -1,134 +1,89 @@
 package br.edu.principal;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Agenda {
-	
-	public static void adicionar(
-			Scanner sc,
-			List<String> contatos) {
-    	System.out.println("=== ADICIONAR CONTATO ===");
-        System.out.print("Digite o nome: ");
-        String nome = sc.nextLine();
-        System.out.print("Digite o celular: ");
-        String celular = sc.nextLine();
-        System.out.print("Digite o email: ");
-        String email = sc.nextLine();
+    private List<Contato> contatos;
 
-        Contato contato = new Contato(nome, celular, email);
+    public Agenda() {
+        contatos = new ArrayList<>();
+    }
 
+    public void adicionar(
+            String nome,
+            String celular,
+            String email) {
+
+        Contato contato = new Contato(
+                nome,
+                celular,
+                email
+        );
         contatos.add(contato);
-
-        System.out.println("Contato adicionado com sucesso!");
     }
-	
-	public static void listar(List<String> contatos) {
-    	System.out.println("=== LISTAR CONTATOS ===");
-        if (nome.size() == 0) {
+
+    public void listar() {
+        if (contatos.isEmpty()) {
             System.out.println("Nenhum contato cadastrado!");
+            return;
+        }
 
-        } else {
-            for (int i = 0; i < nome.size(); i++) {
+        for (Contato contato : contatos) {
 
-                System.out.println("--------------------------");
-                System.out.println("Nome: " + nome.get(i));
-                System.out.println("Celular: " + celular.get(i));
-                System.out.println("Email: " + email.get(i));
-                System.out.println("--------------------------");
+            System.out.println("--------------------------");
+            System.out.println("Nome: " + contato.getNome());
 
-            }
+            System.out.println("Celular: " + contato.getCelular());
+
+            System.out.println("Email: " + contato.getEmail());
+            System.out.println("--------------------------");
+
         }
     }
 
-    public static void pesquisar(
-            Scanner sc,
-            List<String> nomes,
-            List<String> celulares,
-            List<String> emails) {
-    	System.out.println("=== PROCURAR CONTATO ===");
-        System.out.print("Digite o nome do contato: ");
-        String nomeBusca = sc.nextLine();
+    public Contato pesquisar(String nomeBusca) {
 
-        boolean encontrado = false;
+        for (Contato contato : contatos) {
 
-        for (int i = 0; i < nomes.size(); i++) {
-            if (nomes.get(i).equalsIgnoreCase(nomeBusca)) {
-                System.out.println("--------------------------");
-                System.out.println("Nome: " + nomes.get(i));
-                System.out.println("Celular: " + celulares.get(i));
-                System.out.println("Email: " + emails.get(i));
-
-                encontrado = true;
+            if (contato.getNome().equalsIgnoreCase(nomeBusca)) {
+                return contato;
             }
         }
-        if (!encontrado) {
-            System.out.println("Contato não encontrado!");
-        }
+
+        return null;
     }
 
-    public static void atualizar(
-            Scanner sc,
-            List<String> nomes,
-            List<String> celulares,
-            List<String> emails) {
-    	System.out.println("=== ALTERAR CONTATO ===");
-        System.out.print("Digite o nome do contato: ");
-        String nomeProcurado = sc.nextLine();
+    public boolean atualizar(
+            String nomeProcurado,
+            String novoNome,
+            String novoCelular,
+            String novoEmail) {
 
-        int posicao = -1;
-        for (int i = 0; i < nomes.size(); i++) {
-            if (nomes.get(i).equalsIgnoreCase(nomeProcurado)) {
-                posicao = i;
-            }
+        Contato contato = pesquisar(nomeProcurado);
+
+        if (contato == null) {
+
+            return false;
         }
-        if (posicao != -1) {
 
-            System.out.print("Digite o novo nome: ");
-            String novoNome = sc.nextLine();
+        contato.setNome(novoNome);
+        contato.setCelular(novoCelular);
+        contato.setEmail(novoEmail);
 
-            System.out.print("Digite o novo celular: ");
-            String novoCelular = sc.nextLine();
-
-            System.out.print("Digite o novo email: ");
-            String novoEmail = sc.nextLine();
-
-            nomes.set(posicao, novoNome);
-            celulares.set(posicao, novoCelular);
-            emails.set(posicao, novoEmail);
-
-            System.out.println("Contato alterado com sucesso!");
-        } else {
-            System.out.println("Contato não encontrado!");
-        }
+        return true;
     }
 
-    public static void excluir(
-            Scanner sc,
-            List<String> nomes,
-            List<String> celulares,
-            List<String> emails) {
-    	System.out.println("=== EXCLUIR CONTATO ===");
-        System.out.print("Digite o nome do contato: ");
-        String nomeExcluir = sc.nextLine();
+    public boolean excluir(String nome) {
 
-        boolean excluido = false;
+        Contato contato = pesquisar(nome);
 
-        for (int i = 0; i < nomes.size(); i++) {
-            if (nomes.get(i).equalsIgnoreCase(nomeExcluir)) {
-                nomes.remove(i);
-                celulares.remove(i);
-                emails.remove(i);
-
-                excluido = true;
-
-                System.out.println("Contato excluído com sucesso!");
-                break;
-            }
+        if (contato == null) {
+            return false;
         }
-        if (!excluido) {
-            System.out.println("Contato não encontrado!");
-        }
+        contatos.remove(contato);
+
+        return true;
+        
     }
 }
-    
