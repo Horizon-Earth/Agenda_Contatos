@@ -16,28 +16,27 @@ public class Agenda {
         System.out.print("Digite o email: ");
         String email = sc.nextLine();
 
-        nome.setNome();
-        celular.setCelular();
-        email.setEmail();
+        Contato contato = new Contato(nome, celular, email);
+
+        contatos.add(contato);
 
         System.out.println("Contato adicionado com sucesso!");
     }
 	
-	public static void listar(
-            List<String> nomes,
-            List<String> celulares,
-            List<String> emails) {
+	public static void listar(List<String> contatos) {
     	System.out.println("=== LISTAR CONTATOS ===");
-        if (nomes.size() == 0) {
+        if (nome.size() == 0) {
             System.out.println("Nenhum contato cadastrado!");
 
         } else {
-            for (int i = 0; i < nomes.size(); i++) {
+            for (int i = 0; i < nome.size(); i++) {
 
                 System.out.println("--------------------------");
-                System.out.println("Nome: " + nomes.get(i));
-                System.out.println("Celular: " + celulares.get(i));
-                System.out.println("Email: " + emails.get(i));
+                System.out.println("Nome: " + nome.get(i));
+                System.out.println("Celular: " + celular.get(i));
+                System.out.println("Email: " + email.get(i));
+                System.out.println("--------------------------");
+
             }
         }
     }
