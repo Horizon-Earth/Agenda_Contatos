@@ -38,8 +38,42 @@ public class TelaAgenda extends JFrame {
         });
 
         botaoExcluir = new JButton("Excluir contato");
-        botaoAtualizar = new JButton("Atualizar contato");
 
+        botaoExcluir.addActionListener(e -> {
+            String nome = campoNome.getText();
+
+            boolean excluiu = agenda.excluir(nome);
+
+            if (excluiu) {
+                JOptionPane.showMessageDialog(null, "Contato excluido com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Contato nao encontrado!");
+            }
+
+            campoNome.setText("");
+            campoEmail.setText("");
+            campoCelular.setText("");
+        });
+
+        botaoAtualizar = new JButton("Atualizar contato");
+        botaoAtualizar.addActionListener(e -> {
+            String nome = campoNome.getText();
+            String email = campoEmail.getText();
+            String celular = campoCelular.getText();
+
+            boolean atualizou = agenda.atualizar(nome, nome, celular, email);
+
+            if (atualizou) {
+                JOptionPane.showMessageDialog(null, "Contato atualizado com sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Contato nao encontrado!");
+            }
+            campoNome.setText("");
+            campoEmail.setText("");
+            campoCelular.setText("");
+        });
+
+        
         setTitle("Agenda de Contatos");
         setSize(700, 500);
         setLocationRelativeTo(null);
