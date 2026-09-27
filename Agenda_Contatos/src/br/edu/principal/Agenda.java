@@ -10,6 +10,10 @@ public class Agenda {
         contatos = new ArrayList<>();
     }
 
+    public List<Contato> getContatos() {
+        return new ArrayList<>(contatos);
+    }
+
     public void adicionar(
             String nome,
             String celular,
