@@ -1,0 +1,13 @@
+target/
+build/
+dist/
+*.class
+*.log
+.idea/
+.vscode/
+nbproject/private/
+nbactions-private.xml
+.env
+.env.*
+!.env.example
+.DS_Store
