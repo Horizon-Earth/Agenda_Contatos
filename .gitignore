@@ -1,13 +1,29 @@
+# Saídas de compilação Maven/Java
 target/
 build/
 dist/
 *.class
-*.log
-.idea/
-.vscode/
+hs_err_pid*
+replay_pid*
+
+# Configurações pessoais dos editores
 nbproject/private/
 nbactions-private.xml
+.idea/
+.vscode/
+*.iml
+
+# Logs e temporários
+*.log
+*.tmp
+*.bak
+*~
+
+# Configurações locais
 .env
 .env.*
 !.env.example
+
+# Arquivos do sistema
 .DS_Store
+Thumbs.db

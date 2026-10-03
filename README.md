@@ -21,7 +21,7 @@ Aplicação didática de Programação Orientada a Objetos para cadastrar, consu
 
 Java 17+, JavaFX 17, FXML, CSS, Maven, JUnit 5, NetBeans e Scene Builder.
 
-> O guia da disciplina exige Swing e MySQL na versão final. Esta implementação utiliza JavaFX por escolha no desenvolvimento atual. A persistência MySQL ainda não foi implementada; as pastas de banco documentam trabalho futuro. Confirmar com o professor a aceitação de JavaFX antes da entrega acadêmica.
+> O guia da disciplina exige Swing e MySQL na versão final. Esta implementação utiliza JavaFX por escolha no desenvolvimento atual. A persistência MySQL ainda não foi implementada; as pastas de banco estão reservadas para trabalho futuro. Confirmar com o professor a aceitação de JavaFX antes da entrega acadêmica.
 
 ## Executar
 
@@ -96,6 +96,8 @@ A equipe deve cadastrar os nomes, perfis e responsabilidades em [docs/equipe.md]
 Desenvolver em branches `feature/*` ou `fix/*`, testar e abrir Pull Request para `main`, conforme o guia. Este repositório corresponde somente à agenda; login e projeto livre pertencem a repositórios próprios.
 
 Pendências: persistência MySQL, modelagem do banco, capturas reais da interface e confirmação da tecnologia para entrega. Consulte [docs/roadmap.md](docs/roadmap.md).
+
+Pastas reservadas são mantidas com `.gitkeep`. Referências e autoria dos materiais de apoio estão em [docs/referencias.md](docs/referencias.md).
 
 ## Licença
 
