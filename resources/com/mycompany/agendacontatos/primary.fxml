@@ -1,49 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.agendacontatos.PrimaryController" prefWidth="900" prefHeight="600">
- <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600" prefWidth="900" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.mycompany.agendacontatos.PrimaryController">
+ <padding><Insets bottom="24" left="24" right="24" top="24" /></padding>
  <top>
   <VBox spacing="12">
-   <Label text="HORIZON EARTH" styleClass="marca"/>
-   <Label text="Agenda de contatos" styleClass="titulo"/>
-   <Label text="Cadastre seus contatos ou selecione uma pessoa na tabela para editar."/>
+   <Label styleClass="marca" text="HORIZON EARTH" />
+   <Label prefHeight="21.0" prefWidth="300.0" styleClass="titulo" text="Agenda de contatos" />
+   <Label text="Cadastre seus contatos ou selecione uma pessoa na tabela para editar." />
    <GridPane hgap="12" vgap="10">
-    <columnConstraints><ColumnConstraints minWidth="80"/><ColumnConstraints hgrow="ALWAYS"/></columnConstraints>
-    <Label text="Nome *" GridPane.rowIndex="0"/>
-    <TextField fx:id="campoNome" promptText="Nome completo" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-    <Label text="Telefone *" GridPane.rowIndex="1"/>
-    <TextField fx:id="campoTelefone" promptText="(85) 99999-9999" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-    <Label text="E-mail" GridPane.rowIndex="2"/>
-    <TextField fx:id="campoEmail" promptText="Opcional" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <columnConstraints><ColumnConstraints minWidth="80" /><ColumnConstraints hgrow="ALWAYS" /></columnConstraints>
+    <Label text="Nome *" GridPane.rowIndex="0" />
+    <TextField fx:id="campoNome" promptText="Nome completo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <Label text="Telefone *" GridPane.rowIndex="1" />
+    <TextField fx:id="campoTelefone" promptText="(85) 99999-9999" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <Label text="E-mail" GridPane.rowIndex="2" />
+    <TextField fx:id="campoEmail" promptText="Opcional" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
    </GridPane>
    <HBox spacing="10">
-    <Button fx:id="botaoAdicionar" text="Adicionar" onAction="#adicionarContato" styleClass="primario"/>
-    <Button fx:id="botaoSalvar" text="Salvar edição" onAction="#salvarEdicao" disable="true"/>
-    <Button fx:id="botaoRemover" text="Remover" onAction="#removerContato" disable="true"/>
-    <Button fx:id="botaoLimpar" text="Limpar campos" onAction="#limparCampos"/>
+    <Button fx:id="botaoAdicionar" onAction="#adicionarContato" styleClass="primario" text="Adicionar" />
+    <Button fx:id="botaoSalvar" disable="true" onAction="#salvarEdicao" text="Salvar edição" />
+    <Button fx:id="botaoRemover" disable="true" onAction="#removerContato" text="Remover" />
+    <Button fx:id="botaoLimpar" onAction="#limparCampos" text="Limpar campos" />
    </HBox>
-   <TextField fx:id="campoBusca" promptText="Buscar pelo nome..."/>
-   <Label fx:id="mensagem" text="Pronto para cadastrar." wrapText="true" minHeight="34"/>
-   <padding><Insets bottom="12"/></padding>
+   <TextField fx:id="campoBusca" promptText="Buscar pelo nome..." />
+   <Label fx:id="mensagem" minHeight="34" text="Pronto para cadastrar." wrapText="true" />
+   <padding><Insets bottom="12" /></padding>
   </VBox>
  </top>
  <center>
   <TableView fx:id="tabelaContatos">
-   <placeholder><Label text="Nenhum contato encontrado."/></placeholder>
+   <placeholder><Label text="Nenhum contato encontrado." /></placeholder>
    <columns>
-    <TableColumn fx:id="colunaNome" text="Nome" prefWidth="280"/>
-    <TableColumn fx:id="colunaTelefone" text="Telefone" prefWidth="200"/>
-    <TableColumn fx:id="colunaEmail" text="E-mail" prefWidth="330"/>
+    <TableColumn fx:id="colunaNome" prefWidth="280" text="Nome" />
+    <TableColumn fx:id="colunaTelefone" prefWidth="208.0" text="Telefone" />
+    <TableColumn fx:id="colunaEmail" prefWidth="322.0" text="E-mail" />
    </columns>
   </TableView>
  </center>
  <bottom>
   <HBox spacing="20">
-   <padding><Insets top="12"/></padding>
-   <Label fx:id="totalContatos" text="0 cadastrados"/>
-   <Label text="Os contatos ficam em memória nesta versão."/>
+   <padding><Insets top="12" /></padding>
+   <Label fx:id="totalContatos" text="0 cadastrados" />
   </HBox>
  </bottom>
 </BorderPane>
