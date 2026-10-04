@@ -1,103 +1,202 @@
 # Agenda de Contatos | Horizon Earth
 
-Aplicação didática de Programação Orientada a Objetos para cadastrar, consultar, editar e remover contatos. Interface JavaFX editável no Scene Builder e código organizado conforme o Guia de Organização do GitHub V2.0 da disciplina.
-
-## Objetivos
-
-- Praticar classes, objetos, encapsulamento e coleções.
-- Separar os dados e operações da agenda das ações da interface.
-- Registrar evolução, documentação e colaboração no GitHub.
+Aplicação didática de Programação Orientada a Objetos para cadastrar, consultar, editar e remover contatos. A aplicação utiliza JavaFX, Maven e persistência de dados em MySQL.
 
 ## Funcionalidades
 
-- Cadastro com nome e telefone obrigatórios e e-mail opcional.
-- Listagem e busca por nome, ignorando maiúsculas/minúsculas.
-- Edição do contato selecionado e exclusão com confirmação.
-- Limpeza dos campos e contador dos contatos.
-
-**Esta versão guarda os dados em memória. Ao fechar, os contatos são perdidos.**
+- Cadastro de contatos com nome e telefone obrigatórios e e-mail opcional.
+- Listagem dos contatos cadastrados.
+- Busca por nome, ignorando maiúsculas e minúsculas.
+- Edição do contato selecionado.
+- Remoção do contato com confirmação.
+- Persistência dos contatos em banco de dados MySQL.
+- Carregamento dos contatos salvos ao iniciar a aplicação.
+- Validação dos campos obrigatórios.
+- Testes automatizados da agenda e da interface.
 
 ## Tecnologias
 
-Java 17+, JavaFX 17, FXML, CSS, Maven, JUnit 5, NetBeans e Scene Builder.
+- Java 17
+- JavaFX 17.0.12
+- FXML e CSS
+- Maven
+- MySQL
+- MySQL Connector/J 9.4.0
+- JUnit 5.10.2
+- NetBeans
+- Scene Builder
 
-> O guia da disciplina exige Swing e MySQL na versão final. Esta implementação utiliza JavaFX por escolha no desenvolvimento atual. A persistência MySQL ainda não foi implementada; as pastas de banco estão reservadas para trabalho futuro. Confirmar com o professor a aceitação de JavaFX antes da entrega acadêmica.
+## Banco de dados
+
+O projeto utiliza o banco `agenda_contatos` e a tabela `contatos`.
+
+O script de criação está em:
+
+```
+database/scripts/schema.sql
+```
+
+Para criar o banco e a tabela, com o MySQL instalado e em execução, execute na raiz do projeto:
+
+```bash
+mysql -u root -p < database/scripts/schema.sql
+```
+
+O script cria:
+
+```text
+agenda_contatos
+└── contatos
+    ├── id
+    ├── nome
+    ├── telefone
+    └── email
+```
+
+## Configuração da senha do MySQL
+
+A senha do MySQL **não deve ser colocada no código nem commitada no GitHub**.
+
+A classe `Conexao` lê a senha pela variável de ambiente `DB_SENHA`:
+
+```java
+private static final String SENHA = System.getenv("DB_SENHA");
+```
+
+Antes de executar a aplicação, configure a variável no mesmo terminal que será usado para iniciar o Maven:
+
+```bash
+export DB_SENHA='SUA_SENHA_DO_MYSQL'
+```
+
+É possível conferir se a variável está configurada sem exibir a senha:
+
+```bash
+if [ -n "$DB_SENHA" ]; then echo "DB_SENHA configurada"; else echo "DB_SENHA vazia"; fi
+```
+
+Deve aparecer:
+
+```text
+DB_SENHA configurada
+```
+
+> A variável de ambiente vale apenas para o terminal atual e para os processos iniciados a partir dele. Se um novo terminal for aberto, configure `DB_SENHA` novamente.
 
 ## Executar
 
-1. Clone o repositório:
+### Pelo NetBeans
+
+1. Abra a pasta do projeto no NetBeans usando **File → Open Project**.
+2. Configure o projeto para utilizar JDK 17.
+3. Garanta que o MySQL esteja em execução.
+4. Crie o banco usando o script indicado acima.
+5. Configure `DB_SENHA` no ambiente do processo que iniciar o NetBeans/aplicação.
+6. Execute o projeto.
+
+### Pelo terminal
+
+Na raiz do projeto:
 
 ```bash
-git clone https://github.com/Horizon-Earth/Agenda_Contatos.git
-cd Agenda_Contatos
-```
-
-2. No NetBeans, use **File → Open Project** e selecione a pasta com `pom.xml`.
-3. Selecione um JDK 17 ou superior, aguarde o download das dependências e pressione **F6**.
-
-Com JDK e Maven instalados, também é possível executar pelo terminal:
-
-```bash
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export PATH="$JAVA_HOME/bin:$PATH"
+export DB_SENHA='SUA_SENHA_DO_MYSQL'
 mvn clean javafx:run
 ```
 
-A primeira execução requer internet para baixar as dependências. `nbactions.xml` configura o botão Executar do NetBeans.
+A primeira execução pode demorar porque o Maven precisa baixar as dependências.
 
-## Editar a interface
+A aplicação utiliza:
 
-Abra `resources/com/mycompany/agendacontatos/primary.fxml` no Scene Builder. Preserve `fx:id`, `On Action` e `fx:controller` ao alterar o layout. O aplicativo aplica `estilo.css` ao abrir a janela.
+```text
+jdbc:mysql://localhost:3306/agenda_contatos
+```
 
-O Maven inclui a pasta `resources/` no classpath explicitamente, mantendo os caminhos relativos usados pelo `App`. Não há cópias duplicadas dos arquivos FXML/CSS.
+com o usuário `root`.
+
+## Fluxo da persistência
+
+As operações da interface passam pela seguinte estrutura:
+
+```text
+PrimaryController
+      ↓
+    Agenda
+      ↓
+  ContatoDAO
+      ↓
+   Conexao
+      ↓
+     MySQL
+```
+
+O `ContatoDAO` é responsável pelas operações de persistência:
+
+- `salvar()` → INSERT
+- `listar()` → SELECT
+- `editar()` → UPDATE
+- `remover()` → DELETE
+
+A classe `Contato` possui também o `id` do registro, utilizado para identificar o contato no banco.
+
+## Testes
+
+Para executar os testes:
+
+```bash
+mvn test
+```
+
+Para executar a verificação completa, incluindo o teste da interface:
+
+```bash
+xvfb-run -a mvn verify
+```
+
+Os testes automatizados utilizam MySQL no GitHub Actions. O workflow cria um serviço MySQL, inicializa o schema e executa os testes com Java 17.
+
+O workflow está em:
+
+```
+.github/workflows/java.yml
+```
 
 ## Organização
 
 | Caminho | Conteúdo |
 | --- | --- |
 | `src/main/java/` | Classes Java da aplicação |
-| `src/test/java/` | Testes de agenda e carregamento da interface |
-| `resources/` | FXML, CSS, ícones e imagens da aplicação |
-| `database/DER`, `database/DL`, `database/scripts` | Materiais da futura persistência MySQL |
+| `src/test/java/` | Testes da aplicação |
+| `resources/` | FXML, CSS, ícones e imagens |
+| `database/DER` | Modelo entidade-relacionamento |
+| `database/DL` | Diagramas relacionados ao banco |
+| `database/scripts` | Scripts SQL |
 | `docs/uml/` | Diagrama de classes |
 | `docs/ui-ux/` | Wireframes, mockups e fluxo da interface |
 | `docs/diagrams/` | Arquitetura da aplicação |
-| `docs/presentations/` | Apresentações da equipe |
-| `support/` | Guia da disciplina, tutoriais e referências |
-| `.github/` | CI e modelo de Pull Request |
+| `.github/` | GitHub Actions e configurações do repositório |
 
-## Classes
+## Classes principais
 
-- `Contato`: nome, telefone e e-mail, construtor, getters e setters.
-- `Agenda`: gerencia a coleção de objetos `Contato`.
-- `PrimaryController`: recebe ações do FXML, chama a agenda e atualiza a tabela.
-- `App`: inicia o JavaFX e abre a janela.
+- `Contato`: representa os dados de um contato e seu identificador no banco.
+- `ContatoDAO`: realiza as operações de persistência no MySQL.
+- `Conexao`: centraliza a criação das conexões JDBC.
+- `Agenda`: coordena as operações da agenda.
+- `PrimaryController`: conecta a interface JavaFX às operações da agenda.
+- `App`: inicia a aplicação JavaFX.
 
-## Testes
+## Segurança
 
-```bash
-mvn test
-```
+Não versione senhas, chaves ou outras credenciais.
 
-Os testes da interface exigem um display gráfico. No Linux com Xvfb instalado:
+A senha do MySQL utilizada localmente deve permanecer em uma variável de ambiente, como `DB_SENHA`. O GitHub Actions utiliza uma senha própria apenas para o banco temporário dos testes automatizados.
 
-```bash
-xvfb-run -a mvn verify
-```
+## Colaboração
 
-O GitHub Actions executa os testes da agenda e o carregamento real do FXML em um display virtual. Sem a variável `DISPLAY`, o teste gráfico é ignorado.
-
-## Equipe
+Desenvolva em branches `feature/*` ou `fix/*`, teste as alterações e abra um Pull Request para `main`, conforme as regras da disciplina.
 
 Organização: [Horizon Earth](https://github.com/Horizon-Earth).
-
-A equipe deve cadastrar os nomes, perfis e responsabilidades em [docs/equipe.md](docs/equipe.md). Esses dados não foram presumidos.
-
-## Colaboração e próximos passos
-
-Desenvolver em branches `feature/*` ou `fix/*`, testar e abrir Pull Request para `main`, conforme o guia. Este repositório corresponde somente à agenda; login e projeto livre pertencem a repositórios próprios.
-
-Pendências: persistência MySQL, modelagem do banco, capturas reais da interface e confirmação da tecnologia para entrega. Consulte [docs/roadmap.md](docs/roadmap.md).
-
-Pastas reservadas são mantidas com `.gitkeep`. Referências e autoria dos materiais de apoio estão em [docs/referencias.md](docs/referencias.md).
 
 ## Licença
 
