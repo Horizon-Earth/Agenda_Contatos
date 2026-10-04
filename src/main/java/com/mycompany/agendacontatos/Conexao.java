@@ -8,8 +8,9 @@ public class Conexao {
 
     private static final String URL = "jdbc:mysql://localhost:3306/agenda_contatos";
     private static final String USUARIO = "root";
+    private static final String SENHA = System.getenv("DB_SENHA");
 
     public static Connection conectar() throws SQLException {
-        return DriverManager.getConnection(URL, USUARIO, "SUA_SENHA");
+        return DriverManager.getConnection(URL, USUARIO, SENHA);
     }
 }
