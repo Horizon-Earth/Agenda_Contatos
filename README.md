@@ -1,104 +1,75 @@
-# Agenda de Contatos | Horizon Earth
+# 📒 Agenda de contatos — Horizon Earth
 
-Aplicação didática de Programação Orientada a Objetos para cadastrar, consultar, editar e remover contatos. Interface JavaFX editável no Scene Builder e código organizado conforme o Guia de Organização do GitHub V2.0 da disciplina.
+Módulo desktop em JavaFX para cadastrar e organizar contatos do projeto Horizon Earth.
 
-## Objetivos
+## Funcionalidades atuais
 
-- Praticar classes, objetos, encapsulamento e coleções.
-- Separar os dados e operações da agenda das ações da interface.
-- Registrar evolução, documentação e colaboração no GitHub.
+- Adicionar contatos com nome, telefone e e-mail opcional.
+- Buscar contatos pelo nome.
+- Selecionar e editar um contato.
+- Remover contatos com confirmação.
+- Limpar o formulário e visualizar o total de contatos.
+- Exibir a imagem da interface no canto superior direito.
 
-## Funcionalidades
-
-- Cadastro com nome e telefone obrigatórios e e-mail opcional.
-- Listagem e busca por nome, ignorando maiúsculas/minúsculas.
-- Edição do contato selecionado e exclusão com confirmação.
-- Limpeza dos campos e contador dos contatos.
-
-**Esta versão guarda os dados em memória. Ao fechar, os contatos são perdidos.**
+Nome e telefone são obrigatórios. Os contatos ficam em memória durante a execução; ao fechar o programa, os dados são perdidos. A integração com o login e o banco de dados está prevista.
 
 ## Tecnologias
 
-Java 17+, JavaFX 17, FXML, CSS, Maven, JUnit 5, NetBeans e Scene Builder.
+Java 17, JavaFX 17.0.12, Maven, FXML, CSS e JUnit 5. O FXML pode ser editado no Scene Builder.
 
-> O guia da disciplina exige Swing e MySQL na versão final. Esta implementação utiliza JavaFX por escolha no desenvolvimento atual. A persistência MySQL ainda não foi implementada; as pastas de banco estão reservadas para trabalho futuro. Confirmar com o professor a aceitação de JavaFX antes da entrega acadêmica.
+## Como executar
 
-## Executar
-
-1. Clone o repositório:
+Instale um JDK 17 e Maven. Na pasta do projeto:
 
 ```bash
 git clone https://github.com/Horizon-Earth/Agenda_Contatos.git
 cd Agenda_Contatos
-```
-
-2. No NetBeans, use **File → Open Project** e selecione a pasta com `pom.xml`.
-3. Selecione um JDK 17 ou superior, aguarde o download das dependências e pressione **F6**.
-
-Com JDK e Maven instalados, também é possível executar pelo terminal:
-
-```bash
 mvn clean javafx:run
 ```
 
-A primeira execução requer internet para baixar as dependências. `nbactions.xml` configura o botão Executar do NetBeans.
-
-## Editar a interface
-
-Abra `resources/com/mycompany/agendacontatos/primary.fxml` no Scene Builder. Preserve `fx:id`, `On Action` e `fx:controller` ao alterar o layout. O aplicativo aplica `estilo.css` ao abrir a janela.
-
-O Maven inclui a pasta `resources/` no classpath explicitamente, mantendo os caminhos relativos usados pelo `App`. Não há cópias duplicadas dos arquivos FXML/CSS.
+No NetBeans, use **Arquivo > Abrir projeto**, selecione a pasta que contém `pom.xml` e execute o projeto. O arquivo `nbactions.xml` configura a ação de execução.
 
 ## Organização
 
 | Caminho | Conteúdo |
 | --- | --- |
-| `src/main/java/` | Classes Java da aplicação |
-| `src/test/java/` | Testes de agenda e carregamento da interface |
-| `resources/` | FXML, CSS, ícones e imagens da aplicação |
-| `database/DER`, `database/DL`, `database/scripts` | Materiais da futura persistência MySQL |
-| `docs/uml/` | Diagrama de classes |
-| `docs/ui-ux/` | Wireframes, mockups e fluxo da interface |
-| `docs/diagrams/` | Arquitetura da aplicação |
-| `docs/presentations/` | Apresentações da equipe |
-| `support/` | Guia da disciplina, tutoriais e referências |
-| `.github/` | CI e modelo de Pull Request |
+| `src/main/java/com/mycompany/agendacontatos/` | Classes da aplicação |
+| `src/test/java/` | Testes |
+| `resources/com/mycompany/agendacontatos/` | FXML, CSS e imagem da interface |
+| `database/` | Espaço reservado para modelos e scripts futuros |
+| `docs/` | UML, arquitetura, interface, equipe e planejamento |
+| `support/` | Guia da disciplina e materiais de apoio |
 
-## Classes
+`Contato` representa os dados; `Agenda` gerencia a coleção; `PrimaryController` conecta a interface às operações; `App` inicia o JavaFX. A pasta `resources/` é configurada no Maven.
 
-- `Contato`: nome, telefone e e-mail, construtor, getters e setters.
-- `Agenda`: gerencia a coleção de objetos `Contato`.
-- `PrimaryController`: recebe ações do FXML, chama a agenda e atualiza a tabela.
-- `App`: inicia o JavaFX e abre a janela.
+## Validação
 
-## Testes
+Execute `mvn test`. O teste da interface precisa de ambiente gráfico; em Linux com Xvfb, execute `xvfb-run -a mvn verify`. O workflow do GitHub Actions utiliza esse comando.
 
-```bash
-mvn test
-```
+## Documentação
 
-Os testes da interface exigem um display gráfico. No Linux com Xvfb instalado:
-
-```bash
-xvfb-run -a mvn verify
-```
-
-O GitHub Actions executa os testes da agenda e o carregamento real do FXML em um display virtual. Sem a variável `DISPLAY`, o teste gráfico é ignorado.
+- [Equipe](docs/equipe.md)
+- [Roadmap](docs/roadmap.md)
+- [Diagrama de classes](docs/uml/classes.md)
+- [Tutorial do NetBeans](support/tutorials/netbeans.md)
+- [Referências](docs/referencias.md)
 
 ## Equipe
 
-Organização: [Horizon Earth](https://github.com/Horizon-Earth).
+Projeto acadêmico de Programação Orientada a Objetos — IFCE, Campus Maranguape, 2026.2.
 
-A equipe deve cadastrar os nomes, perfis e responsabilidades em [docs/equipe.md](docs/equipe.md). Esses dados não foram presumidos.
+| Integrante | Área | GitHub |
+| --- | --- | --- |
+| CaioStack | Full Stack | [CaioStack](https://github.com/CaioStack) |
+| MuriStack | Banco de dados | [MuriStack](https://github.com/MuriStack) |
+| BryanStack | Backend | [Bryan9895](https://github.com/Bryan9895) |
+| MarioStack | Frontend | [ycarus-236](https://github.com/ycarus-236) |
+| MiguelStack | Frontend e design | [MiguelStack](https://github.com/MiguelStack) |
 
-## Colaboração e próximos passos
+## Contribuição
 
-Desenvolver em branches `feature/*` ou `fix/*`, testar e abrir Pull Request para `main`, conforme o guia. Este repositório corresponde somente à agenda; login e projeto livre pertencem a repositórios próprios.
-
-Pendências: persistência MySQL, modelagem do banco, capturas reais da interface e confirmação da tecnologia para entrega. Consulte [docs/roadmap.md](docs/roadmap.md).
-
-Pastas reservadas são mantidas com `.gitkeep`. Referências e autoria dos materiais de apoio estão em [docs/referencias.md](docs/referencias.md).
+Crie uma branch para a alteração, faça commits claros e abra um pull request. Confira a execução e os testes disponíveis antes de integrar à `main`.
 
 ## Licença
 
-MIT — consulte [LICENSE](LICENSE).
+Código e documentação próprios da Horizon Earth distribuídos sob a [licença MIT](LICENSE). Materiais externos, imagens, texturas e dados de APIs mantêm suas licenças e atribuições originais.
