@@ -68,7 +68,7 @@ public class ContatoDAO {
         }
     }
 
-    public void remover(Contato contato) throws SQLException {
+    public boolean remover(Contato contato) throws SQLException {
         String sql = "DELETE FROM contatos WHERE id = ?";
 
         try (Connection conexao = Conexao.conectar();
@@ -76,7 +76,7 @@ public class ContatoDAO {
 
             comando.setInt(1, contato.getId());
 
-            comando.executeUpdate();
+            return comando.executeUpdate() > 0;
         }
     }
 }
