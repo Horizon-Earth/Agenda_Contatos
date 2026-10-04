@@ -36,13 +36,43 @@ O script de criação está em:
 database/scripts/schema.sql
 ```
 
-Para criar o banco e a tabela, com o MySQL instalado e em execução, execute na raiz do projeto:
+### Como criar o banco usando o script
+
+Com o MySQL instalado e em execução, abra um terminal e entre na pasta do projeto:
+
+```bash
+cd Agenda_Contatos
+```
+
+Confirme que o arquivo existe:
+
+```bash
+ls database/scripts/schema.sql
+```
+
+O terminal deve mostrar:
+
+```text
+database/scripts/schema.sql
+```
+
+Agora execute o arquivo no MySQL:
 
 ```bash
 mysql -u root -p < database/scripts/schema.sql
 ```
 
-O script cria:
+O MySQL solicitará a senha do usuário `root`:
+
+```text
+Enter password:
+```
+
+Digite a senha do MySQL e pressione **Enter**. A senha não aparecerá na tela enquanto estiver sendo digitada; isso é normal.
+
+Se o comando terminar sem apresentar uma mensagem de erro, o script foi executado.
+
+O arquivo `schema.sql` cria automaticamente o banco e a tabela necessários para a aplicação:
 
 ```text
 agenda_contatos
@@ -52,6 +82,45 @@ agenda_contatos
     ├── telefone
     └── email
 ```
+
+Para conferir se o banco foi criado, execute:
+
+```bash
+mysql -u root -p
+```
+
+Depois de informar a senha, no prompt do MySQL execute:
+
+```sql
+SHOW DATABASES;
+```
+
+Deve aparecer o banco:
+
+```text
+agenda_contatos
+```
+
+Depois confira a tabela:
+
+```sql
+USE agenda_contatos;
+SHOW TABLES;
+```
+
+Deve aparecer:
+
+```text
+contatos
+```
+
+Para sair do MySQL:
+
+```sql
+exit;
+```
+
+> O comando `mysql -u root -p < database/scripts/schema.sql` deve ser executado no **terminal do sistema**, a partir da raiz do projeto. Não é necessário copiar e colar o conteúdo do arquivo `schema.sql` manualmente no MySQL.
 
 ## Configuração da senha do MySQL
 
