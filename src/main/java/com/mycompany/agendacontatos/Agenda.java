@@ -6,7 +6,15 @@ import java.util.List;
 
 public class Agenda {
 
-    private final ContatoDAO contatoDAO = new ContatoDAO();
+    private final ContatoDAO contatoDAO;
+
+    public Agenda() {
+        this(new ContatoDAO());
+    }
+
+    Agenda(ContatoDAO contatoDAO) {
+        this.contatoDAO = contatoDAO;
+    }
 
     public void adicionarContato(Contato contato) throws SQLException {
         if (contato == null) {
@@ -25,8 +33,7 @@ public class Agenda {
             return false;
         }
 
-        contatoDAO.remover(contato);
-        return true;
+        return contatoDAO.remover(contato);
     }
 
     public List<Contato> buscarContatos(String texto) throws SQLException {
