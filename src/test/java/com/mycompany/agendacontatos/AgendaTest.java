@@ -49,12 +49,7 @@ class AgendaTest {
 
         assertThrows(
                 IllegalArgumentException.class,
-                () -> agenda.editarContato(
-                        new Contato("X", "1", ""),
-                        "Y",
-                        "2",
-                        ""
-                )
+                () -> agenda.editarContato(null, "Y", "2", "")
         );
     }
 
