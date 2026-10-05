@@ -1,20 +1,19 @@
-# .github
+# ⚙️ .github
 
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+Templates de colaboração e configurações do GitHub Actions.
 
-Configurações de colaboração e automações deste repositório.
+## Explore as subpastas
 
-### Estado atual
+| Pasta | O que você encontra |
+| :--- | :--- |
+| 📁 [workflows/](workflows/README.md) | Automações do GitHub Actions. |
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+## Arquivos desta pasta
 
-### Conteúdo
+| Arquivo | Finalidade |
+| :--- | :--- |
+| [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md) | Documento sobre PULL_REQUEST_TEMPLATE. |
 
-| Item | Descrição |
-| --- | --- |
-| [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md) | Arquivo existente relacionado à finalidade desta pasta. |
-| [workflows/](workflows/README.md) | Automações do GitHub Actions. |
+---
 
-[Voltar ao README do projeto](../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../README.md)

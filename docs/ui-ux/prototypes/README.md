@@ -1,19 +1,13 @@
-# docs/ui-ux/prototypes
-
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+# 📁 prototypes
 
 Protótipos e registros da navegação e interação entre telas.
 
-### Estado atual
+## Arquivos desta pasta
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+| Arquivo | Finalidade |
+| :--- | :--- |
+| [fluxo.md](fluxo.md) | Documento sobre fluxo. |
 
-### Conteúdo
+---
 
-| Item | Descrição |
-| --- | --- |
-| [fluxo.md](fluxo.md) | Arquivo existente relacionado à finalidade desta pasta. |
-
-[Voltar ao README do projeto](../../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../../README.md) · [Pasta anterior](../README.md)

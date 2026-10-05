@@ -1,19 +1,13 @@
-# docs/diagrams
-
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+# 📁 diagrams
 
 Fluxogramas e diagramas de arquitetura; UML fica em docs/uml/ e modelagem de banco em database/.
 
-### Estado atual
+## Arquivos desta pasta
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+| Arquivo | Finalidade |
+| :--- | :--- |
+| [arquitetura.md](arquitetura.md) | Documento sobre arquitetura. |
 
-### Conteúdo
+---
 
-| Item | Descrição |
-| --- | --- |
-| [arquitetura.md](arquitetura.md) | Arquivo existente relacionado à finalidade desta pasta. |
-
-[Voltar ao README do projeto](../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../README.md) · [Pasta anterior](../README.md)

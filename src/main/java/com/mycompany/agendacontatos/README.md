@@ -1,24 +1,18 @@
-# src/main/java/com/mycompany/agendacontatos
+# 📁 agendacontatos
 
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+Classes Contato, Agenda, DAO, conexão MySQL, inicialização e controlador da interface.
 
-Organiza as classes Java e os subpacotes deste caminho, preservando a estrutura dos pacotes declarados no código.
+## Arquivos desta pasta
 
-### Estado atual
+| Arquivo | Finalidade |
+| :--- | :--- |
+| [Agenda.java](Agenda.java) | Operações de gerenciamento dos contatos. |
+| [App.java](App.java) | Inicialização da aplicação JavaFX. |
+| [Conexao.java](Conexao.java) | Configuração da conexão com o MySQL. |
+| [Contato.java](Contato.java) | Modelo com os dados de um contato. |
+| [ContatoDAO.java](ContatoDAO.java) | Operações de persistência dos contatos. |
+| [PrimaryController.java](PrimaryController.java) | Ações dos componentes da interface JavaFX. |
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+---
 
-### Conteúdo
-
-| Item | Descrição |
-| --- | --- |
-| [Agenda.java](Agenda.java) | Classe Java do pacote. |
-| [App.java](App.java) | Classe Java do pacote. |
-| [Conexao.java](Conexao.java) | Classe Java do pacote. |
-| [Contato.java](Contato.java) | Classe Java do pacote. |
-| [ContatoDAO.java](ContatoDAO.java) | Classe Java do pacote. |
-| [PrimaryController.java](PrimaryController.java) | Classe Java do pacote. |
-
-[Voltar ao README do projeto](../../../../../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../../../../../README.md) · [Pasta anterior](../README.md)

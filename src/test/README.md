@@ -1,19 +1,13 @@
-# src/test
+# 📁 test
 
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+Testes automatizados e pacotes usados para validar o comportamento da agenda.
 
-Organiza o código dos testes automatizados e seus pacotes.
+## Explore as subpastas
 
-### Estado atual
+| Pasta | O que você encontra |
+| :--- | :--- |
+| 📁 [java/](java/README.md) | Testes automatizados e pacotes usados para validar o comportamento da agenda. |
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+---
 
-### Conteúdo
-
-| Item | Descrição |
-| --- | --- |
-| [java/](java/README.md) | Subpasta de organização do projeto. |
-
-[Voltar ao README do projeto](../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../README.md) · [Pasta anterior](../README.md)

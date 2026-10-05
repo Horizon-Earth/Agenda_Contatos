@@ -1,19 +1,13 @@
-# src/test/java/com/mycompany
+# 📁 mycompany
 
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+Testes automatizados e pacotes usados para validar o comportamento da agenda.
 
-Organiza as classes Java e os subpacotes deste caminho, preservando a estrutura dos pacotes declarados no código.
+## Explore as subpastas
 
-### Estado atual
+| Pasta | O que você encontra |
+| :--- | :--- |
+| 📁 [agendacontatos/](agendacontatos/README.md) | Testes automatizados e pacotes usados para validar o comportamento da agenda. |
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+---
 
-### Conteúdo
-
-| Item | Descrição |
-| --- | --- |
-| [agendacontatos/](agendacontatos/README.md) | Subpasta de organização do projeto. |
-
-[Voltar ao README do projeto](../../../../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../../../../README.md) · [Pasta anterior](../README.md)

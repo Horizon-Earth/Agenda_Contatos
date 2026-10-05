@@ -1,19 +1,13 @@
-# database/DER
-
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+# 📁 DER
 
 Diagramas Entidade-Relacionamento e arquivos editáveis de modelagem do banco.
 
-### Estado atual
+## Arquivos desta pasta
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+| Arquivo | Finalidade |
+| :--- | :--- |
+| [Agenda_Contatos.mwb](Agenda_Contatos.mwb) | Modelo editável do banco no MySQL Workbench. |
 
-### Conteúdo
+---
 
-| Item | Descrição |
-| --- | --- |
-| [Agenda_Contatos.mwb](Agenda_Contatos.mwb) | Arquivo existente relacionado à finalidade desta pasta. |
-
-[Voltar ao README do projeto](../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../README.md) · [Pasta anterior](../README.md)

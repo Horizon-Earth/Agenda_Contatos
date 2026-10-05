@@ -1,19 +1,13 @@
-# resources/com/mycompany
+# 📁 mycompany
 
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+Subpacotes de recursos da interface.
 
-Organiza os arquivos e subpastas deste caminho no projeto.
+## Explore as subpastas
 
-### Estado atual
+| Pasta | O que você encontra |
+| :--- | :--- |
+| 📁 [agendacontatos/](agendacontatos/README.md) | FXML, CSS e imagens carregados pela interface da agenda. |
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+---
 
-### Conteúdo
-
-| Item | Descrição |
-| --- | --- |
-| [agendacontatos/](agendacontatos/README.md) | Subpasta de organização do projeto. |
-
-[Voltar ao README do projeto](../../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../../README.md) · [Pasta anterior](../README.md)

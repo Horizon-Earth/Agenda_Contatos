@@ -1,19 +1,13 @@
-# database/DL
-
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+# 📁 DL
 
 Diagrama lógico, tabelas, campos, chaves e relacionamentos do banco.
 
-### Estado atual
+## Arquivos desta pasta
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+| Arquivo | Finalidade |
+| :--- | :--- |
+| [Agenda_Contatos_DL.txt](Agenda_Contatos_DL.txt) | Arquivo de txt relacionado ao projeto. |
 
-### Conteúdo
+---
 
-| Item | Descrição |
-| --- | --- |
-| [Agenda_Contatos_DL.txt](Agenda_Contatos_DL.txt) | Arquivo existente relacionado à finalidade desta pasta. |
-
-[Voltar ao README do projeto](../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../README.md) · [Pasta anterior](../README.md)

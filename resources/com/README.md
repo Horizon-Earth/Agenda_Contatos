@@ -1,19 +1,13 @@
-# resources/com
+# 📁 com
 
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+Subpacotes de recursos da interface.
 
-Organiza os arquivos e subpastas deste caminho no projeto.
+## Explore as subpastas
 
-### Estado atual
+| Pasta | O que você encontra |
+| :--- | :--- |
+| 📁 [mycompany/](mycompany/README.md) | Subpacotes de recursos da interface. |
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+---
 
-### Conteúdo
-
-| Item | Descrição |
-| --- | --- |
-| [mycompany/](mycompany/README.md) | Subpasta de organização do projeto. |
-
-[Voltar ao README do projeto](../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../README.md) · [Pasta anterior](../README.md)

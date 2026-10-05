@@ -1,19 +1,13 @@
-# docs/ui-ux/wireframes
-
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+# 📁 wireframes
 
 Esboços da disposição dos componentes e da estrutura das telas.
 
-### Estado atual
+## Arquivos desta pasta
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+| Arquivo | Finalidade |
+| :--- | :--- |
+| [agenda.md](agenda.md) | Documento sobre agenda. |
 
-### Conteúdo
+---
 
-| Item | Descrição |
-| --- | --- |
-| [agenda.md](agenda.md) | Arquivo existente relacionado à finalidade desta pasta. |
-
-[Voltar ao README do projeto](../../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../../README.md) · [Pasta anterior](../README.md)

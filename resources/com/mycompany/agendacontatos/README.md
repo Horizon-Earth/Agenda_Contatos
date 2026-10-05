@@ -1,21 +1,20 @@
-# resources/com/mycompany/agendacontatos
+# 📁 agendacontatos
 
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+FXML, CSS e imagens carregados pela interface da agenda.
 
-Organiza os arquivos e subpastas deste caminho no projeto.
+## Explore as subpastas
 
-### Estado atual
+| Pasta | O que você encontra |
+| :--- | :--- |
+| 📁 [images/](images/README.md) | Imagens e texturas utilizadas na interface ou na cena 3D. |
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+## Arquivos desta pasta
 
-### Conteúdo
+| Arquivo | Finalidade |
+| :--- | :--- |
+| [estilo.css](estilo.css) | Cores, tipografia e estilo da interface. |
+| [primary.fxml](primary.fxml) | Estrutura dos componentes da tela. |
 
-| Item | Descrição |
-| --- | --- |
-| [estilo.css](estilo.css) | Arquivo existente relacionado à finalidade desta pasta. |
-| [primary.fxml](primary.fxml) | Arquivo existente relacionado à finalidade desta pasta. |
-| [images/](images/README.md) | Imagens e texturas utilizadas na interface ou na cena 3D. |
+---
 
-[Voltar ao README do projeto](../../../../README.md).
-<!-- estrutura-guia:fim -->
+[← Visão geral do projeto](../../../../README.md) · [Pasta anterior](../README.md)

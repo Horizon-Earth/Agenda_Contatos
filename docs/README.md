@@ -1,25 +1,24 @@
-# docs
-
-<!-- estrutura-guia:inicio -->
-## Finalidade e estado da pasta
+# 📚 docs
 
 Documentação produzida pela equipe sobre este projeto. Materiais externos de consulta pertencem a support/.
 
-### Estado atual
+## Explore as subpastas
 
-Esta pasta contém arquivos do projeto ou materiais nas subpastas abaixo.
+| Pasta | O que você encontra |
+| :--- | :--- |
+| 📁 [diagrams/](diagrams/README.md) | Fluxogramas e diagramas de arquitetura; UML fica em docs/uml/ e modelagem de banco em database/. |
+| 📁 [presentations/](presentations/README.md) | Slides e materiais de apresentação e demonstração do projeto. |
+| 📁 [ui-ux/](ui-ux/README.md) | Planejamento das interfaces e da experiência do usuário. |
+| 📁 [uml/](uml/README.md) | Diagramas UML de classes, casos de uso, sequência e atividades. |
 
-### Conteúdo
+## Arquivos desta pasta
 
-| Item | Descrição |
-| --- | --- |
-| [equipe.md](equipe.md) | Arquivo existente relacionado à finalidade desta pasta. |
-| [referencias.md](referencias.md) | Arquivo existente relacionado à finalidade desta pasta. |
-| [roadmap.md](roadmap.md) | Arquivo existente relacionado à finalidade desta pasta. |
-| [diagrams/](diagrams/README.md) | Fluxogramas e diagramas de arquitetura; UML fica em docs/uml/ e modelagem de banco em database/. |
-| [presentations/](presentations/README.md) | Slides e materiais de apresentação e demonstração do projeto. |
-| [ui-ux/](ui-ux/README.md) | Planejamento das interfaces e da experiência do usuário. |
-| [uml/](uml/README.md) | Diagramas UML de classes, casos de uso, sequência e atividades. |
+| Arquivo | Finalidade |
+| :--- | :--- |
+| [equipe.md](equipe.md) | Documento sobre equipe. |
+| [referencias.md](referencias.md) | Documento sobre referencias. |
+| [roadmap.md](roadmap.md) | Documento sobre roadmap. |
 
-[Voltar ao README do projeto](../README.md).
-<!-- estrutura-guia:fim -->
+---
+
+[← Visão geral do projeto](../README.md)
